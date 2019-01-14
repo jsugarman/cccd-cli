@@ -1,8 +1,13 @@
+require "hanami/cli"
 require "cccd/cli/version"
+require "cccd/cli/commands"
 
 module Cccd
-  module Cli
+  class Cli
     class Error < StandardError; end
-    # Your code goes here...
+
+    def call(*args)
+      Hanami::CLI.new(Commands).call(*args)
+    end
   end
 end
